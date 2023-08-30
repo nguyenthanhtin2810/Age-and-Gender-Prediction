@@ -6,9 +6,9 @@
 ## Introduction
 Age and gender prediction from facial images is a challenging computer vision task with various applications, including face recognition, targeted marketing, and user experience personalization. In this project, we have implemented a deep learning model to predict the age and gender of individuals from facial images.
 
-<img src="test_image/predicted_image1.jpg" width="288" height="300"><img src="test_image/predicted_image2.jpg" width="259" height="303">
+<img src="test_image/predicted_image1.jpg" width="288" height="303"><img src="test_image/predicted_image2.jpg" width="259" height="303">
 
-<img src="test_image/predicted_image4.jpg" width="274" height="267"><img src="test_image/predicted_image5.jpg" width="298" height="270">
+<img src="test_image/predicted_image4.jpg" width="274" height="285"><img src="test_image/predicted_image5.jpg" width="298" height="285">
 
 ## Data
 Data used for this project consists of images of 10 different types of flowers. You can find it at <a href="https://www.kaggle.com/datasets/nipunarora8/age-gender-and-ethnicity-face-data-csv?select=age_gender.csv">this link</a>
