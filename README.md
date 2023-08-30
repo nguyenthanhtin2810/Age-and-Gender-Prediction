@@ -12,9 +12,7 @@ This repository contains a deep learning project for predicting age and gender f
 <img src="test_image/predicted_image4.jpg" width="356" height="370"><img src="test_image/predicted_image5.jpg" width="387" height="370">
 
 ## Data
-The data used for this project is a dataframe that includes columns such as age, ethnicity, gender, img_name, and pixels. However, in this project, we are only concerned with the columns age, gender, and pixels. 
-
-You can find it at <a href="https://www.kaggle.com/datasets/nipunarora8/age-gender-and-ethnicity-face-data-csv?select=age_gender.csv">this link</a>
+<a href="https://www.kaggle.com/datasets/nipunarora8/age-gender-and-ethnicity-face-data-csv?select=age_gender.csv">The data</a> used for this project is a dataframe that includes columns such as age, ethnicity, gender, img_name, and pixels. However, in this project, we are only concerned with the columns age, gender, and pixels. 
 
 I have processed that data so that it can be used for model training in **dataset.py**
 
