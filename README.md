@@ -14,7 +14,7 @@ This repository contains a deep learning project for predicting age and gender f
 ## Data
 <a href="https://www.kaggle.com/datasets/nipunarora8/age-gender-and-ethnicity-face-data-csv?select=age_gender.csv">The data</a> used for this project is a dataframe that includes columns such as age, ethnicity, gender, img_name, and pixels. However, in this project, we are only concerned with the columns age, gender, and pixels. 
 
-I have processed that data so that it can be used for model training in **dataset.py**
+I have processed that data so that it can be used for model training in **dataset.py**.
 
 ## Model
 I have built a simple CNN model that can predict the age and gender of a person from an input facial image. The model is designed to perform both classification and regression tasks simultaneously.
@@ -31,12 +31,12 @@ Replace path/to/age/gender/dataset with the path to your dataset.
 After training, the model's accuracy on the test set will be displayed, and the best model (**best_model.pt**) will be saved in the **trained_models** directory.
 
 ## Trained Models
-You can find trained models I have trained in <a href="https://drive.google.com/drive/folders/1YMYvG2RqJup4dJ7D2qUcdVfRID6dC-o3?usp=sharing">this link</a>
+You can find trained models I have trained in <a href="https://drive.google.com/drive/folders/1YMYvG2RqJup4dJ7D2qUcdVfRID6dC-o3?usp=sharing">this link</a>.
 
 ## Experiments
 I trained the model for 100 epochs and the best model has an accuracy score of **0.868** for the gender classification task and an R-square score of **0.839** for the age prediction task.
 
-Loss/iteration during training & Accuracy/epoch during validation
+Loss/iteration during training & Accuracy/epoch during validation.
 <img src="tensorboard/tensorboard.jpg" width="877.5" height="864">
 
 ## Testing
