@@ -6,7 +6,7 @@
 ## Introduction
 Age and gender prediction from facial images is a challenging computer vision task with various applications, including face recognition, targeted marketing, and user experience personalization. In this project, we have implemented a deep learning model to predict the age and gender of individuals from facial images.
 
-<img src="test_image/predicted_image2.jpg" width="336" height="393"><img src="test_image/predicted_image1.jpg" width="374" height="393">
+<img src="test_image/predicted_image2.jpg" width="336" height="393"><img src="test_image/predicted_image9.jpg" width="374" height="393">
 
 <img src="test_image/predicted_image4.jpg" width="356" height="370"><img src="test_image/predicted_image5.jpg" width="387" height="370">
 
