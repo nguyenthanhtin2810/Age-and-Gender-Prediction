@@ -14,7 +14,6 @@ def get_args():
 
 
 if __name__ == '__main__':
-    gender = ["Male", "Female"]
     args = get_args()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -41,9 +40,7 @@ if __name__ == '__main__':
     image = image.unsqueeze(0)
     with torch.no_grad():
         reg_output, cls_output = model(image)
-        # _, predicted = torch.max(cls_output, 1)
     predicted_age = round(reg_output.item())
-    # predicted_gender = gender[predicted.item()]
     predicted_gender = "Male" if cls_output.argmax().item() == 0 else "Female"
 
     width, height = 600, 700
