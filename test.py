@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from model import AgeGenderCNN
+from model import AgeGenderCNN, AgeGenderResNet50
 import torch
 from PIL import Image, ImageDraw, ImageFont
 from torchvision.transforms import Compose, Resize, ToTensor, Normalize
@@ -9,6 +9,7 @@ def get_args():
     parser = ArgumentParser(description="Testing")
     parser.add_argument("--image-path", "-p", type=str, default=None)
     parser.add_argument("--checkpoint", "-c", type=str, default="trained_models/best_model.pt")
+    parser.add_argument("--typemodel", "-tm", type=bool, default=0, help="0: Custom model, 1: finetune resnet50")
     args = parser.parse_args()
     return args
 
@@ -17,7 +18,11 @@ if __name__ == '__main__':
     args = get_args()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model = AgeGenderCNN()
+    if args.typemodel:
+        model = AgeGenderResNet50()
+    else:
+        model = AgeGenderCNN()
+        
     if args.checkpoint:
         checkpoint = torch.load(args.checkpoint)
         model.load_state_dict(checkpoint["model"])
@@ -31,11 +36,18 @@ if __name__ == '__main__':
 
     model.eval()
     ori_image = Image.open(args.image_path)
-    image = ori_image.convert('L')
-    transform = Compose([
-        ToTensor(),
-        Resize((48, 48), antialias=True)
-    ])
+    if args.typemodel:
+        image = ori_image.convert('L').convert('RGB')
+        transform = Compose([
+            ToTensor(),
+            Resize((224, 224), antialias=True)
+        ])
+    else:
+        image = ori_image.convert('L')
+        transform = Compose([
+            ToTensor(),
+            Resize((48, 48), antialias=True)
+        ])
     image = transform(image)
     image = image.unsqueeze(0)
     with torch.no_grad():
