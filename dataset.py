@@ -13,8 +13,9 @@ def NumStr_to_NpArr(number_string):
     return numpy_array
 
 class AgeGenderDataset(Dataset):
-    def __init__(self, train=True, transform=None):
+    def __init__(self, train=True, transform=None, gray=True):
         self.transform = transform
+        self.gray = gray
         self.name_genders = ['male', 'female']
         data = pd.read_csv("age_gender.csv")
         data.drop(["ethnicity", "img_name"], axis=1, inplace=True)
@@ -31,7 +32,10 @@ class AgeGenderDataset(Dataset):
     def __getitem__(self, index):
         numstr = self.data["pixels"].iloc[index]
         nparr = NumStr_to_NpArr(numstr)
-        image = Image.fromarray(nparr)
+        if self.gray:
+            image = Image.fromarray(nparr)
+        else:
+            image = Image.fromarray(nparr).convert("RGB")
         if self.transform:
             image = self.transform(image)
         age_label = self.data["age"].iloc[index]
