@@ -39,6 +39,11 @@ I trained the model for 100 epochs and the best model has an accuracy score of *
 Loss/iteration during training & Accuracy/epoch during validation.
 <img src="tensorboard/tensorboard.jpg" width="877.5" height="864">
 
+||Custom CNN|Fine-tuning ResNet50|
+|-----------|:-----------:|:-----------:|
+|Accuracy|0.868|0.864|
+|R-square|0.839|0.914|
+
 ## Testing
 You can test the model with images in **test_image** by running the following command:
 ```
