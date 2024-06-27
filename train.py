@@ -1,6 +1,6 @@
 import torch
 from dataset import AgeGenderDataset
-from model import AgeGenderCNN
+from model import AgeGenderCNN, AgeGenderResNet50
 from torch.utils.data import DataLoader
 import torch.nn as nn
 from sklearn.metrics import accuracy_score, r2_score
@@ -18,6 +18,7 @@ def get_args():
     parser.add_argument("--logging", "-l", type=str, default="tensorboard")
     parser.add_argument("--trained_models", "-t", type=str, default="trained_models")
     parser.add_argument("--checkpoint", "-c", type=str, default=None)
+    parser.add_argument("--typemodel", "-tm", type=bool, default=0, help="0: Custom model, 1: finetune resnet50")
     args = parser.parse_args()
     return args
 
@@ -25,17 +26,43 @@ if __name__ == '__main__':
     args = get_args()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    transform = Compose([
-        RandomAffine(
-            degrees=(-5, 5),
-            translate=(0.05, 0.05),
-            scale=(0.8, 1.1),
-            shear=0.8
-        ),
-        ToTensor(),
-    ])
+        if args.typemodel:
+        train_transform = Compose([
+            Resize((224, 224)),
+            RandomAffine(
+                degrees=(-5, 5),
+                translate=(0.05, 0.05),
+                scale=(0.8, 1.1),
+                shear=0.8
+            ),
+            ToTensor(),
+        ])
 
-    train_dataset = AgeGenderDataset(train=True, transform=transform)
+        test_transform = Compose([
+            Resize((224, 224)),
+            ToTensor(),
+        ])
+
+        gray = False
+    else:
+        train_transform = Compose([
+            RandomAffine(
+                degrees=(-5, 5),
+                translate=(0.05, 0.05),
+                scale=(0.8, 1.1),
+                shear=0.8
+            ),
+            ToTensor(),
+        ])
+
+        test_transform = ToTensor()
+
+        gray = True
+
+    train_dataset = AgeGenderDataset(train=True, transform=train_transform, gray=gray)
+
+    test_dataset = AgeGenderDataset(train=False, transform=test_transform, gray=gray)
+
     train_dataloader = DataLoader(
         dataset=train_dataset,
         batch_size=args.batch_size,
@@ -44,7 +71,6 @@ if __name__ == '__main__':
         num_workers=4,
     )
 
-    test_dataset = AgeGenderDataset(train=False, transform=ToTensor())
     test_dataloader = DataLoader(
         dataset=test_dataset,
         batch_size=args.batch_size,
@@ -57,7 +83,10 @@ if __name__ == '__main__':
         os.mkdir(args.trained_models)
 
     writer = SummaryWriter(args.logging)
-    model = AgeGenderCNN().to(device)
+    if args.typemodel:
+        model = AgeGenderResNet50().to(device)
+    else:
+        model = AgeGenderCNN().to(device)
 
     reg_criterion = nn.MSELoss()
     cls_criterion = nn.CrossEntropyLoss()
