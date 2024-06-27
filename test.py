@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
     draw.text((x, y), text=text, font=font, fill=text_color)
 
-    # image_filename = args.image_path.split("\\")[2]
+    # image_filename = args.imagepath.split("\\")[2]
     # ori_image.save(f"test_image/predicted_{image_filename}")
 
     ori_image.show()
