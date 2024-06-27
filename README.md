@@ -38,7 +38,7 @@ I trained the model for 100 epochs and the best model has an accuracy score of *
 
 Loss/iteration during training & Accuracy/epoch during validation.
 <img src="tensorboard/tensorboard.jpg" width="877.5" height="864">
-
+**Compare with other models**
 ||Custom CNN|Fine-tuning ResNet50|
 |-----------|:-----------:|:-----------:|
 |Accuracy|0.868|0.864|
