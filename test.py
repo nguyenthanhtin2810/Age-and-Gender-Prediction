@@ -35,7 +35,7 @@ if __name__ == '__main__':
         exit(0)
 
     model.eval()
-    ori_image = Image.open(args.image_path)
+    ori_image = Image.open(args.imagepath)
     if args.typemodel:
         image = ori_image.convert('L').convert('RGB')
         transform = Compose([
