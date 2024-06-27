@@ -90,8 +90,10 @@ class AgeGenderResNet50(nn.Module):
         return reg_output, cls_output
 
 if __name__ == '__main__':
-    model = AgeGenderCNN()
-    input_data = torch.rand(8, 1, 48, 48)
+    # model = AgeGenderCNN()
+    # input_data = torch.rand(8, 1, 48, 48))
+    model = AgeGenderResNet50()
+    input_data = torch.rand(8, 3, 224, 224)
     if torch.cuda.is_available():
         model.cuda()
         input_data = input_data.cuda()
