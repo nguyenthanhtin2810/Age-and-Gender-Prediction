@@ -8,7 +8,7 @@ from torchvision.transforms import Compose, Resize, ToTensor, Normalize
 def get_args():
     parser = ArgumentParser(description="Testing")
     parser.add_argument("--image-path", "-p", type=str, default=None)
-    parser.add_argument("--checkpoint", "-c", type=str, default="trained_models/best_model.pt")
+    parser.add_argument("--checkpoint", "-c", type=str, default="trained_models/best_custom_model.pt")
     parser.add_argument("--typemodel", "-tm", type=bool, default=0, help="0: Custom model, 1: finetune resnet50")
     args = parser.parse_args()
     return args
