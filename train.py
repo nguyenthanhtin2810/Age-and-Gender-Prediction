@@ -37,13 +37,12 @@ if __name__ == '__main__':
             ),
             ToTensor(),
         ])
-
         test_transform = Compose([
             Resize((224, 224)),
             ToTensor(),
         ])
-
         gray = False
+        typemodel = 'resnet50'
     else:
         train_transform = Compose([
             RandomAffine(
@@ -54,10 +53,9 @@ if __name__ == '__main__':
             ),
             ToTensor(),
         ])
-
         test_transform = ToTensor()
-
         gray = True
+        typemodel = 'custom'
 
     train_dataset = AgeGenderDataset(train=True, transform=train_transform, gray=gray)
 
@@ -161,7 +159,7 @@ if __name__ == '__main__':
             "model": model.state_dict(),
             "optimizer": optimizer.state_dict(),
         }
-        torch.save(checkpoint, f"{args.trained_models}/last_model.pt")
+        torch.save(checkpoint, f"{args.trained_models}/last_{typemodel}_model.pt")
         if total_score > best_score:
             checkpoint = {
                 "best_score": best_score,
@@ -169,7 +167,7 @@ if __name__ == '__main__':
                 "cls_accuracy": accuracy,
                 "model": model.state_dict(),
             }
-            torch.save(checkpoint, f"{args.trained_models}/best_model.pt")
+            torch.save(checkpoint, f"{args.trained_models}/best_{typemodel}_model.pt")
             best_score = total_score
 
 
