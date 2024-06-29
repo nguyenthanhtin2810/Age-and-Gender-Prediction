@@ -7,7 +7,7 @@
 This repository contains a deep learning project for predicting age and gender from facial images. The project is implemented using PyTorch and includes a custom convolutional neural network (CNN) architecture.
 
 
-<img src="test_image/predicted_image4.jpg" width="388" height="370"><img src="test_image/predicted_image9.jpg" width="374" height="393">
+<img src="test_image/predicted_image4.jpg" width="374" height="388"><img src="test_image/predicted_image9.jpg" width="374" height="393">
 
 <p align="center">
   <img src="./test_image/camerademo.gif" alt="Camera demo">
