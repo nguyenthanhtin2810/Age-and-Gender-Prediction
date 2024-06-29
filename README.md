@@ -7,9 +7,9 @@
 This repository contains a deep learning project for predicting age and gender from facial images. The project is implemented using PyTorch and includes a custom convolutional neural network (CNN) architecture.
 
 
-<img src="test_image/predicted_image2.jpg" width="336" height="393"><img src="test_image/predicted_image9.jpg" width="374" height="393">
+<img src="test_image/predicted_image4.jpg" width="356" height="370"><img src="test_image/predicted_image9.jpg" width="374" height="393">
 
-<img src="test_image/predicted_image4.jpg" width="356" height="370"><img src="test_image/predicted_image5.jpg" width="387" height="370">
+![Camera demo](./test_image/camerademo.gif)
 
 ## Data
 <a href="https://www.kaggle.com/datasets/nipunarora8/age-gender-and-ethnicity-face-data-csv?select=age_gender.csv">The data</a> used for this project is a dataframe that includes columns such as age, ethnicity, gender, img_name, and pixels. However, in this project, we are only concerned with the columns age, gender, and pixels. 
