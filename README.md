@@ -30,7 +30,7 @@ python train.py -r path/to/age/gender/dataset
 ```
 Replace path/to/age/gender/dataset with the path to your dataset.
 
-After training, the model's accuracy on the test set will be displayed, and the best model (**best_model.pt**) will be saved in the **trained_models** directory.
+After training, the model's accuracy on the test set will be displayed, and the best model will be saved in the **trained_models** directory.
 
 ## Trained Models
 You can find trained models I have trained in <a href="https://drive.google.com/drive/folders/1YMYvG2RqJup4dJ7D2qUcdVfRID6dC-o3?usp=sharing">this link</a>.
