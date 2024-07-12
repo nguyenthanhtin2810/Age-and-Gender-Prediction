@@ -32,9 +32,6 @@ Replace path/to/age/gender/dataset with the path to your dataset.
 
 After training, the model's accuracy on the test set will be displayed, and the best model will be saved in the **trained_models** directory.
 
-## Trained Models
-You can find trained models I have trained in <a href="https://drive.google.com/drive/folders/1YMYvG2RqJup4dJ7D2qUcdVfRID6dC-o3?usp=sharing">this link</a>.
-
 ## Experiments
 I trained the model for 100 epochs and the best model has an accuracy score of **0.868** for the gender classification task and an R-square score of **0.839** for the age prediction task.
 
