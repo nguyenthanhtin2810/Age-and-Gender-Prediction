@@ -41,8 +41,8 @@ Loss/iteration during training & Accuracy/epoch during validation.
 **Compare with other model**
 ||Custom CNN|Fine-tuning ResNet50|
 |-----------|:-----------:|:-----------:|
-|Accuracy|0.868|0.864|
-|R-square|0.839|0.914|
+|Classification task/Accuracy|0.868|0.864|
+|Regression task/R-square|0.839|0.914|
 
 ## Testing
 You can test the model with images in **test_image** by running the following command:
