@@ -36,7 +36,7 @@ After training, the model's accuracy on the test set will be displayed, and the 
 I trained the model for 100 epochs and the best model has an accuracy score of **0.868** for the gender classification task and an R-square score of **0.839** for the age prediction task.
 
 Loss/iteration during training & Accuracy/epoch during validation.
-<img src="tensorboard/tensorboard.jpg" width="877.5" height="864">
+<img src="tensorboard/tensorboard-img.jpg" width="877.5" height="864">
 
 **Compare with other model**
 ||Custom CNN|Fine-tuning ResNet50|
